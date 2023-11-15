@@ -34,6 +34,7 @@ target_link_libraries(socketcan_dump
   ${Boost_LIBRARIES}
   ${CMAKE_THREAD_LIBS_INIT}
 )
+ament_target_dependencies(socketcan_dump class_loader)
 
 # socketcan_bcm
 add_executable(socketcan_bcm src/canbcm.cpp)
@@ -50,6 +51,7 @@ target_link_libraries(${PROJECT_NAME}_plugin
   ${class_loader_LIBRARIES}
   ${Boost_LIBRARIES}
 )
+ament_target_dependencies(${PROJECT_NAME}_plugin class_loader)
 
 class_loader_hide_library_symbols(${PROJECT_NAME}_plugin)
 install(FILES socketcan_interface_plugin.xml DESTINATION share/${PROJECT_NAME}/)
